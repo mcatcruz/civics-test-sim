@@ -16,7 +16,7 @@ type PassThreshold = 6 | 12;
 type FailThreshold = 5 | 9;
 
 // Optional fields are post-MVP. Required fields will have default values.  
-interface SessionConfig {
+export interface SessionConfig {
     mode: Mode;
     state: State;
     age?: number;

@@ -4,7 +4,13 @@ type GradingMode = "exact" | "one_of" | "multi";
 type AnswerType = "static" | "dynamic_official" | "state_specific";
 type USCISCivicsQuestionsVersion = "2025" | "2008";
 
-interface Question {
+interface Note {
+    timestamp: string;
+    note: string;
+    source: string;
+}
+
+export interface Question {
     id: number;
     question_text: string;
     acceptable_answers: string[];
@@ -16,10 +22,4 @@ interface Question {
     required_count?: number;
     notes?: Note[];
     uscis_civics_questions_version: USCISCivicsQuestionsVersion;
-}
-
-interface Note {
-    timestamp: string;
-    note: string;
-    source: string;
 }
