@@ -3,6 +3,14 @@ import { Question } from './question';
 
 type Status = "in_progress" | "passed" | "failed" | "completed";
 
+// Response = question + user input + grading outcome
+interface Response {
+    questionId: Question["id"];
+    rawUserAnswer: string;
+    normalizedUserAnswer: string;
+    isCorrect: boolean;   
+}
+
 interface Session {
     id: number;
     config: SessionConfig;
@@ -11,5 +19,6 @@ interface Session {
     correctAnswersCount: number;
     incorrectAnswersCount: number;
     currentIndex: number;
-    status: Status;  
+    status: Status;
+    responses: Response[];  
 }
