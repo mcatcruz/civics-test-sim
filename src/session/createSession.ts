@@ -3,7 +3,7 @@ import { Question } from "../models/question";
 import { Session } from "../models/session";
 import { HARDCODED_QUESTIONS } from "../hardcoded_data/questions";
 
-function createSession(sessionConfig: Readonly<SessionConfig>, questions: Question[]): Session {
+function createSession(sessionConfig: Readonly<SessionConfig>, questions: Question[] = []): Session {
     const cfg: SessionConfig = {
         ...sessionConfig,
         mode: "mock",
@@ -19,7 +19,7 @@ function createSession(sessionConfig: Readonly<SessionConfig>, questions: Questi
     const currentSession: Session = {
         id: now_str,
         config: cfg,
-        selectedQuestions: [...HARDCODED_QUESTIONS], // shallow copy to avoid mutation
+        selectedQuestions: questions.length > 0 ? [...questions] : [...HARDCODED_QUESTIONS],
         askedQuestionsCount: 0,
         correctAnswersCount: 0,
         incorrectAnswersCount: 0,
