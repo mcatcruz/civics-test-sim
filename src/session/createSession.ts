@@ -6,13 +6,17 @@ function createSession(sessionConfig: Readonly<SessionConfig>, questions: Questi
     const cfg: SessionConfig = {
         ...sessionConfig,
         mode: "mock",
-        state: "CA",
+        state: "CA", // Default to "CA"
         max_questions: 20,
         pass_threshold: 12,
         fail_threshold: 9,
     };
+
+    const now = Date.now();
+    const now_str = now.toString();
+
     const currentSession: Session = {
-        id: 0, //TODO: How to generate unique IDs?
+        id: now_str,
         config: cfg,
         selectedQuestions: [...questions], // shallow copy to avoid mutation
         askedQuestionsCount: 0,
