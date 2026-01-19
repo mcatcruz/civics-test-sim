@@ -1,6 +1,6 @@
 import { Question } from "../models/question";
 
-export const hardcodedQuestions: Question[] = [
+export const HARDCODED_QUESTIONS: Question[] = [
     {
         id: 79,
         question_text: "When was the Declaration of Independence adopted?",
