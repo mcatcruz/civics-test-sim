@@ -11,8 +11,8 @@ interface Response {
     isCorrect: boolean;   
 }
 
-interface Session {
-    id: number;
+export interface Session {
+    id: string; // TODO: Change string to dynamic unique ID type later
     config: SessionConfig;
     selectedQuestions: Question[];
     askedQuestionsCount: number;
