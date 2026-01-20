@@ -2,7 +2,11 @@ import { Response } from '../models/session';
 import { Question } from '../models/question';
 
 function normalize(rawText:string): string {
-    const normalizedText = rawText.trim().replace(/[^a-zA-Z0-9\s]/g, "").toLowerCase();
+    const normalizedText = rawText
+        .trim()
+        .replace(/[^a-zA-Z0-9\s]/g, "") // remove punctuation
+        .replace(/\s+/g, " ")          // normalize whitespace
+        .toLowerCase();
     
     return normalizedText;
 }
