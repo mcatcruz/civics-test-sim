@@ -30,3 +30,7 @@ export function createResponse(userInput: string, question: Question) {
     }
     return currentResponse;
 };
+
+// Manual Test
+const testAnswer = 
+return createResponse("")
