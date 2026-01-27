@@ -3,7 +3,7 @@ import { Question } from "../models/question";
 import { Session } from "../models/session";
 import { HARDCODED_QUESTIONS } from "../hardcoded_data/questions";
 
-function createSession(sessionConfig: Readonly<SessionConfig>, questions: Question[] = []): Session {
+export function createSession(sessionConfig: Readonly<SessionConfig>, questions: Question[] = []): Session {
     const cfg: SessionConfig = {
         ...sessionConfig,
         mode: "mock",
