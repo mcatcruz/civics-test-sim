@@ -22,6 +22,11 @@ function submitAnswer(currentSession: Session, rawUserAnswer: string): Session {
     const incorrect = currentSession.incorrectAnswersCount + (response.isCorrect ? 0 : 1);
 
     let currentStatus = currentSession.status;
+
+    if (currentStatus === 'in_progress') {
+        return currentSession;
+    }
+
     if ( correct  >= pass_threshold ) {
         currentStatus = 'passed';
 
