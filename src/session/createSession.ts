@@ -3,6 +3,14 @@ import { Question } from "../models/question";
 import { Session } from "../models/session";
 import { HARDCODED_QUESTIONS } from "../hardcoded_data/questions";
 
+/**
+ * Creates a brand new session from scratch.
+ * Initializes all counters to 0, sets up initial state, selects questions, and generates a new session ID.
+ * 
+ * @param sessionConfig - The configuration for the session
+ * @param questions - Optional array of questions. If not provided, uses HARDCODED_QUESTIONS
+ * @returns A new Session object with initial state
+ */
 export function createSession(sessionConfig: Readonly<SessionConfig>, questions: Question[] = []): Session {
     const cfg: SessionConfig = {
         ...sessionConfig,

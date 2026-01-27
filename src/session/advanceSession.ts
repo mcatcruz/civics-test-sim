@@ -1,7 +1,14 @@
 import { Session } from "../models/session";
 import { createResponse } from "../grading/createResponse";
-import { createSession } from "../session/createSession";
 
+/**
+ * Updates an existing session with a new answer.
+ * Creates a response object, updates counters, determines status, and returns a new session object.
+ * 
+ * @param currentSession - The current session state
+ * @param rawUserAnswer - The user's typed answer as a string
+ * @returns A new Session object with updated counters, status, and response
+ */
 function submitAnswer(currentSession: Session, rawUserAnswer: string): Session {
     const questionIndex = currentSession.currentIndex;
     const response = createResponse(rawUserAnswer, currentSession.selectedQuestions[questionIndex]); 
@@ -9,39 +16,35 @@ function submitAnswer(currentSession: Session, rawUserAnswer: string): Session {
     const max_questions = currentSession.config.max_questions;
     const fail_threshold = currentSession.config.fail_threshold;
     
-    currentSession.responses.push(response);
-    currentSession.askedQuestionsCount += 1
-    
-    if (response.isCorrect) {
-        currentSession.correctAnswersCount += 1
-    } else {
-        currentSession.incorrectAnswersCount += 1
-    }
+    const updatedResponses = [...currentSession.responses, response];
+    const asked = currentSession.askedQuestionsCount + 1;
+    const correct = currentSession.correctAnswersCount + (response.isCorrect ?  1 : 0 );
+    const incorrect = currentSession.incorrectAnswersCount + (response.isCorrect ? 0 : 1);
 
-    if ( currentSession.correctAnswersCount === pass_threshold ) {
-        currentSession.status = 'passed';
+    let currentStatus = currentSession.status;
+    if ( correct  >= pass_threshold ) {
+        currentStatus = 'passed';
 
-        const newSession: Session =  createSession(currentSession.config);
-        return newSession;
+    } else if ( incorrect >=  fail_threshold ) { 
+        currentStatus = 'failed';
 
-    } else if (  currentSession.incorrectAnswersCount ===  fail_threshold ) { 
-        currentSession.status = 'failed';
-
-        const newSession: Session =  createSession(currentSession.config);
-        return newSession;
-
-    } else if ( currentSession.askedQuestionsCount === max_questions ) {
-        currentSession.status = 'completed';
-
-        const newSession: Session =  createSession(currentSession.config);
-        return newSession;
+    } else if ( asked >= max_questions ) {
+        currentStatus = 'completed';
 
     } else {
-
-        currentSession.status = 'in_progress';
-        currentSession.currentIndex += 1;
-
-        return currentSession;
-
+        currentStatus = 'in_progress';
     }
+
+    const updatedIndex =  currentSession.currentIndex + (currentStatus === 'in_progress' ? 1 : 0 ); 
+
+    const updatedSession: Session = { ...currentSession,
+        askedQuestionsCount: asked,
+        responses: updatedResponses,
+        correctAnswersCount: correct,
+        incorrectAnswersCount: incorrect,
+        currentIndex: updatedIndex,
+        status: currentStatus,
+    }
+
+    return updatedSession;
 }
