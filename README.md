@@ -27,3 +27,10 @@ Phase 1 will be text-based and have seamless quiz flow and grading logic. Phase 
 - Updates status based on thresholds (pass/fail/completed/in_progress)
 - Conditionally increments index (only if still in progress)
 - Returns a new session object without mutating the input
+
+**`getCurrentQuestion()`** - Pure selector that returns the current question:
+- Use when you need to retrieve the question that should be displayed to the user
+- Returns the Question object at `currentIndex` if the session is in progress and index is valid
+- Returns `null` if the session is not in progress (status is not `'in_progress'`)
+- Returns `null` if the currentIndex is out of bounds (no more questions available)
+- Note: `null` is not an error - it indicates the session has reached a threshold and no more questions need to be retrieved

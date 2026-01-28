@@ -23,7 +23,7 @@ function submitAnswer(currentSession: Session, rawUserAnswer: string): Session {
 
     let currentStatus = currentSession.status;
 
-    if (currentStatus === 'in_progress') {
+    if (currentStatus !== 'in_progress') {
         return currentSession;
     }
 
