@@ -4,6 +4,26 @@ Upon project completion, the USCIS Civics Mock Interview (MVP) will be able to a
 
 Phase 1 will be text-based and have seamless quiz flow and grading logic. Phase 1 will not have a separate flow for users 65+ nor will it have state-specific questions. Furthermore, Phase 1 will not have TTS functionality.
 
+## Testing
+
+### Running Tests
+
+To run the manual test file:
+
+```bash
+ts-node src/dev/manualTest.ts
+```
+
+This will execute the manual test script that demonstrates:
+- Creating responses for correct and incorrect answers
+- Creating a new session with a custom configuration
+- Retrieving the current question from a session
+
+### Prerequisites
+
+- `ts-node` must be installed globally or available via `npx`
+- TypeScript configuration is defined in `tsconfig.json`
+
 ## Session Management Functions
 
 ### When to Use Each Function
