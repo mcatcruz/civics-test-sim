@@ -1,6 +1,6 @@
 import { Session } from "../models/session";
 import { createResponse } from "../grading/createResponse";
-
+import { isSessionComplete } from "./isSessionComplete";
 /**
  * Updates an existing session with a new answer.
  * Creates a response object, updates counters, determines status, and returns a new session object.
@@ -23,7 +23,7 @@ function submitAnswer(currentSession: Session, rawUserAnswer: string): Session {
 
     let currentStatus = currentSession.status;
 
-    if (currentStatus !== 'in_progress') {
+    if (isSessionComplete(currentSession)) {
         return currentSession;
     }
 

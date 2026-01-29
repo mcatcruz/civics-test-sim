@@ -4,18 +4,23 @@ import { getCurrentQuestion } from '../session/getCurrentQuestion';
 import { createSession } from '../session/createSession';
 import { Session } from '../models/session';
 import { SessionConfig } from '../models/sessionConfig';
+import { isSessionComplete } from '../session/isSessionComplete';
 
 // Validating Questions and Answers Alignment and Correctness
+console.log('====== Validating Questions and Answers Alignment and Correctness ======');
+
 const testCorrectAnswer: string = "Thomas Jefferson";
 const Q1 = HARDCODED_QUESTIONS[4]
 
 const testIncorrectAnswer: string = "Dj Vance";
 const Q2 = HARDCODED_QUESTIONS[5]
 
-// console.log(Q1, testCorrectAnswer, createResponse(testCorrectAnswer, Q1));
-// console.log(Q2, testIncorrectAnswer, createResponse(testIncorrectAnswer, Q2));
+console.log(Q1, testCorrectAnswer, createResponse(testCorrectAnswer, Q1));
+console.log(Q2, testIncorrectAnswer, createResponse(testIncorrectAnswer, Q2));
 
 // Testing getCurrentQuestion Functionality 
+console.log('====== Testing getCurrentQuestion Functionality  ======');
+
 const sessionConfig: SessionConfig = {
         mode: 'mock',
         state:  'CA',
@@ -55,3 +60,38 @@ currentSession = {
 
 console.log('\nTest 4: Index out of bounds');
 console.log('Result:', getCurrentQuestion(currentSession)); 
+
+// Testing isSessionComplete Functionality 
+console.log('====== Testing isSessionComplete Functionality ======');
+
+currentSession = {
+    ...currentSession,
+    status: "completed"
+}
+
+console.log('Test 1: Completed Status');
+console.log('Result:', isSessionComplete(currentSession)); // Should return true
+
+currentSession = {
+    ...currentSession,
+    status: "failed"
+}
+
+console.log('\nTest 2: Failed Status');
+console.log('Result:', isSessionComplete(currentSession)); // Should return true
+
+currentSession = {
+    ...currentSession,
+    status: "passed"
+}
+
+console.log('\nTest 2: Passed Status');
+console.log('Result:', isSessionComplete(currentSession)); // Should return true
+
+currentSession = {
+    ...currentSession,
+    status: "in_progress"
+}
+
+console.log('\nTest 3: In Progress Status');
+console.log('Result:', isSessionComplete(currentSession)); // Should return false
