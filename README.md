@@ -54,3 +54,9 @@ This will execute the manual test script that demonstrates:
 - Returns `null` if the session is not in progress (status is not `'in_progress'`)
 - Returns `null` if the currentIndex is out of bounds (no more questions available)
 - Note: `null` is not an error - it indicates the session has reached a threshold and no more questions need to be retrieved
+
+**`isSessionComplete()`** - Pure helper function that checks if a session is complete:
+- Use as a descriptive replacement for `status !== 'in_progress'` checks
+- Returns `true` if the session status is `'passed'`, `'failed'`, or `'completed'`
+- Returns `false` if the session status is `'in_progress'`
+- Makes code more readable by using a descriptive function name instead of status comparisons
