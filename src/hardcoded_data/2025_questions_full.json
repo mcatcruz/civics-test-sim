@@ -1,0 +1,291 @@
+{ "questions": 
+    [
+        {
+            "id": 1,
+            "question_text": "What is the form of government of the United States?",
+            "acceptable_answers": ["Republic", "Constitution-based federal republic", "Representative democracy"],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 2,
+            "question_text": "What is the supreme law of the land?",
+            "acceptable_answers": [
+                "U.S. Constitution", 
+                "Constitution", 
+                "The Constitution", 
+                "The U.S. Constitution"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": true,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 3,
+            "question_text": "Name one thing the U.S. Constitution does.",
+            "acceptable_answers": [
+                "Forms the government", 
+                "Defines powers of government", 
+                "Defines the parts of government", 
+                "Protects the rights of the people"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "one_of",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 4,
+            "question_text": "The U.S. Constitution starts with the words “We the People.” What does “We the People” mean?",
+            "acceptable_answers": [
+                "Self-government", 
+                "Popular sovereignty", 
+                "Consent of the governed", 
+                "People should govern themselves",
+                "Social contract",
+                "Example of social contract"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 5,
+            "question_text": "How are changes made to the U.S. Constitution?",
+            "acceptable_answers": [
+                "Amendments", 
+                "The amendment process", 
+                "Amendment", 
+                "Through amendments",
+                "By amendments"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 6,
+            "question_text": "What does the Bill of Rights protect?",
+            "acceptable_answers": [
+                "The basic rights of Americans",
+                "Rights of Americans",
+                "The basic rights of people living in the United States",
+                "rights of people living in the United States" 
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 7,
+            "question_text": "How many amendments does the U.S. Constitution have?",
+            "acceptable_answers": [
+                "Twenty-seven",
+                "27"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": true,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 8,
+            "question_text": "Why is the Declaration of Independence important?",
+            "acceptable_answers": [
+                "It says America is free from British control",
+                "It says all people are created equal",
+                "It identifies inherent rights",
+                "It identifies individual freedoms"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 9,
+            "question_text": "What founding document said the American colonies were free from Britain?",
+            "acceptable_answers": [
+                "Declaration of Independence",
+                "The Declaration of Independence"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 10,
+            "question_text": "Name two important ideas from the Declaration of Independence and the U.S. Constitution.",
+            "acceptable_answers": [
+                "Equality",
+                "Liberty",
+                "Social contract",
+                "Natural rights",
+                "Limited government",
+                "Self-government"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "multi",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 11,
+            "question_text": "The words “Life, Liberty, and the pursuit of Happiness” are in what founding document?",
+            "acceptable_answers": [
+                "The Declaration of Independence",
+                "Declaration of Independence"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        
+        {
+            "id": 29,
+            "question_text": "Name your US Representative.",
+            "acceptable_answers": ["Lateefah Simon", "Simon"],
+            "acceptable_answers_norm": ["lateefah simon", "simon"],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "state_specific",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 39,
+            "question_text": "What is the name of the Vice President now?",
+            "acceptable_answers": ["JD Vance", "Vance", "J.D. Vance"],
+            "acceptable_answers_norm": ["jd vance", "vance"],
+            "is_65_20_starred": true,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "dynamic_official",
+            "uscis_civics_questions_version": "2025"
+        },
+        { 
+            "id": 77,
+            "question_text": "Name one reason why the Americans declared independence from Britain?",
+            "acceptable_answers": [
+                "High taxes",
+                "Taxation without representation", 
+                "Quartering of troops", 
+                "British military presence"
+            ],
+            "acceptable_answers_norm": [
+                "high taxes", 
+                "taxation without representation", 
+                "quartering of troops", 
+                "british military presence"
+            ],
+            "is_65_20_starred": false,
+            "category": "american_history",
+            "grading_mode": "one_of",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 78,
+            "question_text": "Who wrote the Declaration of Independence?",
+            "acceptable_answers": ["Thomas Jefferson", "Jefferson"],
+            "acceptable_answers_norm": ["thomas jefferson", "jefferson"],
+            "is_65_20_starred": true,
+            "category": "american_history",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },    
+        {
+            "id": 79,
+            "question_text": "When was the Declaration of Independence adopted?",
+            "acceptable_answers": ["July 4, 1776"],
+            "acceptable_answers_norm": ["july 4 1776"],
+            "is_65_20_starred": false,
+            "category": "american_history",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        { 
+            "id": 81,
+            "question_text": "There were 13 original states. Name five.",
+            "acceptable_answers": [
+                "New Hampshire",
+                "New York",
+                "New Jersey",
+                "Delaware",
+                "Pennsylvania",
+                "Massachusetts",
+                "Connecticut",
+                "Rhode Island",
+                "Maryland",
+                "Virginia",
+                "North Carolina",
+                "South Carolina",
+                "Georgia"
+            ],
+            "acceptable_answers_norm": [
+                "new hampshire",
+                "new york",
+                "new jersey",
+                "delaware",
+                "pennsylvania",
+                "massachusetts",
+                "connecticut",
+                "rhode island",
+                "maryland",
+                "virginia",
+                "north carolina",
+                "south carolina",
+                "georgia"
+            ],
+            "is_65_20_starred": false,
+            "category": "american_history",
+            "grading_mode": "multi",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 123,
+            "question_text": "What is the name of the national anthem?",
+            "acceptable_answers": ["The Star-Spangled Banner", "Star-Spangled Banner"],
+            "acceptable_answers_norm": ["the star spangled banner", "star spangled banner"],
+            "is_65_20_starred": false,
+            "category": "symbols_and_holidays",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        }
+        
+    ]
+}
