@@ -170,7 +170,251 @@
             "answer_type": "static",
             "uscis_civics_questions_version": "2025"
         },
-        
+        {
+            "id": 12,
+            "question_text": "What is the economic system of the United States?",
+            "acceptable_answers": [
+                "Capitalism",
+                "Free market economy"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": true,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 13,
+            "question_text": "What is the rule of law?",
+            "acceptable_answers": [
+                "Everyone must follow the law.",
+                "Leaders must obey the law.",
+                "Government must obey the law.",
+                "No one is above the law."
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 14,
+            "question_text": "Many documents influenced the U.S. Constitution. Name one.",
+            "acceptable_answers": [
+                "The Declaration of Independence",
+                "Declaration of Independence",
+                "Articles of Confederation",
+                "Federalist Papers",
+                "Anti-Federalist Papers",
+                "Virginia Declaration of Rights",
+                "Fundamental Orders of Connecticut",
+                "Mayflower Compact",
+                "Iroquois Great Law of Peace"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "one_of",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 15,
+            "question_text": "There are three branches of government. Why?",
+            "acceptable_answers": [
+                "So one part does not become too powerful",
+                "Checks and balances",
+                "Separation of powers"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 16,
+            "question_text": "Name the three branches of government.",
+            "acceptable_answers": [
+                "Legislative, executive, and judicial",
+                "Congress, president, and the courts",
+                "Legislative, executive, judicial",
+                "Congress, president, courts"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 17,
+            "question_text": "The President of the United States is in charge of which branch of government?",
+            "acceptable_answers": [
+                "Executive branch"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 18,
+            "question_text": "What part of the federal government writes laws?",
+            "acceptable_answers": [
+                "(U.S.) Congress",
+                "(U.S. or national) legislature",
+                "Legislative branch"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 19,
+            "question_text": "What are the two parts of the U.S. Congress?",
+            "acceptable_answers": [
+                "Senate and House (of Representatives)"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 20,
+            "question_text": "Name one power of the U.S. Congress.",
+            "acceptable_answers": [
+                "Writes laws",
+                "Declares war",
+                "Makes the federal budget"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": true,
+            "category": "american_government",
+            "grading_mode": "one_of",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 21,
+            "question_text": "How many U.S. senators are there?",
+            "acceptable_answers": [
+                "One hundred (100)"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 22,
+            "question_text": "How long is a term for a U.S. senator?",
+            "acceptable_answers": [
+                "Six (6) years"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 23,
+            "question_text": "Who is one of your state's U.S. senators now?",
+            "acceptable_answers": [
+                "(Alex) Padilla",
+                "(Adam) Schiff",
+                "Answers will vary. [District of Columbia residents and residents of U.S. territories should answer that D.C. (or territory where the applicant lives) has no U.S. senators.]"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "state_specific",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 24,
+            "question_text": "How many voting members are in the House of Representatives?",
+            "acceptable_answers": [
+                "Four hundred thirty-five (435)"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 25,
+            "question_text": "How long is a term for a member of the House of Representatives?",
+            "acceptable_answers": [
+                "Two (2) years"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 26,
+            "question_text": "Why do U.S. representatives serve shorter terms than U.S. senators?",
+            "acceptable_answers": [
+                "To more closely follow public opinion"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 27,
+            "question_text": "How many senators does each state have?",
+            "acceptable_answers": [
+                "Two (2)"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 28,
+            "question_text": "Why does each state have two senators?",
+            "acceptable_answers": [
+                "Equal representation (for small states)",
+                "The Great Compromise (Connecticut Compromise)"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
         {
             "id": 29,
             "question_text": "Name your US Representative.",
@@ -182,6 +426,34 @@
             "answer_type": "state_specific",
             "uscis_civics_questions_version": "2025"
         },
+        {
+            "id": 30,
+            "question_text": "What is the name of the Speaker of the House of Representatives now?",
+            "acceptable_answers": [
+                "Mike Johnson"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": true,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "dynamic_official",
+            "uscis_civics_questions_version": "2025"
+        },
+        {
+            "id": 31,
+            "question_text": "Who does a U.S. senator represent?",
+            "acceptable_answers": [
+                "Citizens of their state",
+                "People of their state"
+            ],
+            "acceptable_answers_norm": [],
+            "is_65_20_starred": false,
+            "category": "american_government",
+            "grading_mode": "exact",
+            "answer_type": "static",
+            "uscis_civics_questions_version": "2025"
+        },
+        
         {
             "id": 39,
             "question_text": "What is the name of the Vice President now?",
