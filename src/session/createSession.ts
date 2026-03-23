@@ -1,7 +1,8 @@
 import { SessionConfig } from "../models/sessionConfig";
 import { Question } from "../models/question";
 import { Session } from "../models/session";
-import { HARDCODED_QUESTIONS } from "../hardcoded_data/questions";
+import { filterEligibleQuestions } from "./filterEligibleQuestions";
+import { selectRandomQuestions } from "./selectRandomQuestions";
 
 /**
  * Creates a brand new session from scratch.
@@ -11,7 +12,7 @@ import { HARDCODED_QUESTIONS } from "../hardcoded_data/questions";
  * @param questions - Optional array of questions. If not provided, uses HARDCODED_QUESTIONS
  * @returns A new Session object with initial state
  */
-export function createSession(sessionConfig: Readonly<SessionConfig>, questions: Question[] = []): Session {
+export function createSession(sessionConfig: Readonly<SessionConfig>, questions: Question[]): Session {
     const cfg: SessionConfig = {
         ...sessionConfig,
         mode: "mock",
@@ -24,10 +25,17 @@ export function createSession(sessionConfig: Readonly<SessionConfig>, questions:
     const now = Date.now();
     const now_str = now.toString();
 
+    const eligibleQuestions = filterEligibleQuestions(questions);
+
+    if (eligibleQuestions.length === 0) {
+        throw new Error('No eligible questions available for this session (question bank is empty).')
+    } 
+    const randomQuestions = selectRandomQuestions(eligibleQuestions);
+
     const currentSession: Session = {
         id: now_str,
         config: cfg,
-        selectedQuestions: questions.length > 0 ? [...questions] : [...HARDCODED_QUESTIONS],
+        selectedQuestions: randomQuestions,
         askedQuestionsCount: 0,
         correctAnswersCount: 0,
         incorrectAnswersCount: 0,

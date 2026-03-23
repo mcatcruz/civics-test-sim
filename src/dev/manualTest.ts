@@ -33,7 +33,7 @@ const sessionConfig: SessionConfig = {
         fail_threshold: 9,
     }
     
-let currentSession: Session = createSession(sessionConfig);
+let currentSession: Session = createSession(sessionConfig, QUESTION_BANK);
     
 console.log('Test 1: Normal case - index 0');
 console.log('Result: ', getCurrentQuestion(currentSession));
@@ -125,3 +125,20 @@ for (let q of randomizedQuestions) {
 }
 
 console.log(randomizedQuestionsText);
+
+// Testing createSession Functionality 
+console.log('====== Testing createSession Functionality ======');
+
+currentSession = createSession(sessionConfig, QUESTION_BANK);
+
+const currentSessionQuestionsText = []
+for (let selected_q of currentSession.selectedQuestions) {
+
+    currentSessionQuestionsText.push(selected_q.question_text);
+}
+console.log(`currentSessionQuestionsText has ${currentSessionQuestionsText.length} questions.`)
+console.log(currentSessionQuestionsText);
+
+// Should throw an error
+const emptyQuestions: Question[] = [];
+currentSession = createSession(sessionConfig, emptyQuestions);
