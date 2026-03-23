@@ -5,6 +5,9 @@ import { createSession } from '../session/createSession';
 import { Session } from '../models/session';
 import { SessionConfig } from '../models/sessionConfig';
 import { isSessionComplete } from '../session/isSessionComplete';
+import { filterEligibleQuestions } from '../session/filterEligibleQuestions';
+import { Question } from '../models/question';
+import { QUESTION_BANK} from '../hardcoded_data/QUESTION_BANK_2025';
 
 // Validating Questions and Answers Alignment and Correctness
 console.log('====== Validating Questions and Answers Alignment and Correctness ======');
@@ -95,3 +98,12 @@ currentSession = {
 
 console.log('\nTest 3: In Progress Status');
 console.log('Result:', isSessionComplete(currentSession)); // Should return false
+
+// Testing filterEligibleQuestions Functionality 
+console.log('====== Testing filterEligibleQuestions Functionality ======');
+
+const eligibleQuestions = filterEligibleQuestions(QUESTION_BANK);
+
+console.log(`QUESTION_BANK has ${QUESTION_BANK.length} questions`);
+console.log(`eligibleQuestions has ${eligibleQuestions.length} questions`);
+

@@ -1,4 +1,6 @@
-{ "questions": 
+import { Question } from "../models/question";
+
+export const QUESTION_BANK: Question[] = 
     [
         {
             "id": 1,
@@ -514,7 +516,7 @@
             "id": 36,
             "question_text": "The president of the United States is elected for how many years?",
             "acceptable_answers": [
-                "Four (4) years",
+                "Four (4) years"
             ],
             "acceptable_answers_norm": [],
             "is_65_20_starred": true,
@@ -891,7 +893,7 @@
             "grading_mode": "exact",
             "answer_type": "static",
             "uscis_civics_questions_version": "2025"
-        }
+        },
         {
             "id": 61,
             "question_text": "Who is the governor of your state now?",
@@ -1982,4 +1984,3 @@
             "uscis_civics_questions_version": "2025"
         }   
     ]
-}
