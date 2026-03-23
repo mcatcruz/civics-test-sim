@@ -16,8 +16,9 @@ ts-node src/dev/manualTest.ts
 
 This will execute the manual test script that demonstrates:
 - Creating responses for correct and incorrect answers
-- Creating a new session with a custom configuration
+- Creating a new session from a question bank (filter + random selection)
 - Retrieving the current question from a session
+- Session completion helpers (`isSessionComplete`)
 
 ### Prerequisites
 
@@ -28,14 +29,23 @@ This will execute the manual test script that demonstrates:
 
 ### When to Use Each Function
 
+**`filterEligibleQuestions()`** - Narrows the question bank for Phase 1:
+- Takes the full question bank and returns only questions eligible for the current rules
+- Phase 1: keeps `answer_type === 'static'` (excludes dynamic and state-specific until later phases)
+- Returns a new array; does not mutate the input
+
+**`selectRandomQuestions()`** - Builds the session’s question list:
+- Takes eligible questions, shuffles them (Fisher–Yates), returns up to 20 questions
+- If fewer than 20 are eligible, returns all of them in random order
+- Used by `createSession` after filtering
+
 **`createSession()`** - Creates a brand new session from scratch:
 - Use when starting a new test session (beginning of the flow)
+- Requires a full `questions` array; runs `filterEligibleQuestions` then `selectRandomQuestions`
+- Throws if no eligible questions exist after filtering
 - Generates a new session ID
-- Initializes all counters to 0
-- Sets `currentIndex` to 0
-- Sets status to `"in_progress"`
-- Selects questions (from config or hardcoded)
-- Sets up the initial config
+- Initializes all counters to 0, sets `currentIndex` to 0, status `"in_progress"`
+- Merges `sessionConfig` with defaults (mode, state, thresholds)
 - Creates an empty `responses` array
 
 **`submitAnswer()`** - Updates an existing session:

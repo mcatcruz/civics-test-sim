@@ -6,11 +6,12 @@ import { selectRandomQuestions } from "./selectRandomQuestions";
 
 /**
  * Creates a brand new session from scratch.
- * Initializes all counters to 0, sets up initial state, selects questions, and generates a new session ID.
- * 
- * @param sessionConfig - The configuration for the session
- * @param questions - Optional array of questions. If not provided, uses HARDCODED_QUESTIONS
- * @returns A new Session object with initial state
+ * Filters the question bank to eligible questions, randomly selects up to 20, then initializes counters and state.
+ *
+ * @param sessionConfig - The configuration for the session (merged with defaults for mode, state, thresholds)
+ * @param questions - Full question bank to draw from (filtered then shuffled via `filterEligibleQuestions` and `selectRandomQuestions`)
+ * @returns A new Session object with `selectedQuestions` populated and all counters at zero
+ * @throws If no eligible questions remain after filtering (empty bank or nothing matches Phase 1 rules)
  */
 export function createSession(sessionConfig: Readonly<SessionConfig>, questions: Question[]): Session {
     const cfg: SessionConfig = {
