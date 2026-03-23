@@ -8,6 +8,7 @@ import { isSessionComplete } from '../session/isSessionComplete';
 import { filterEligibleQuestions } from '../session/filterEligibleQuestions';
 import { Question } from '../models/question';
 import { QUESTION_BANK} from '../hardcoded_data/QUESTION_BANK_2025';
+import { selectRandomQuestions } from '../session/selectRandomQuestions';
 
 // Validating Questions and Answers Alignment and Correctness
 console.log('====== Validating Questions and Answers Alignment and Correctness ======');
@@ -107,3 +108,20 @@ const eligibleQuestions = filterEligibleQuestions(QUESTION_BANK);
 console.log(`QUESTION_BANK has ${QUESTION_BANK.length} questions`);
 console.log(`eligibleQuestions has ${eligibleQuestions.length} questions`);
 
+// Testing selectRandomQuestions Functionality 
+console.log('====== Testing selectRandomQuestions Functionality ======');
+
+const randomizedQuestions = selectRandomQuestions(eligibleQuestions);
+
+console.log(`randomizedQuestions has ${randomizedQuestions.length} questions.`)
+
+type q_tuple = [string, number]
+const randomizedQuestionsText: q_tuple[] = []
+
+for (let q of randomizedQuestions) {
+    let q_sample: q_tuple = [q.question_text, q.id]
+
+    randomizedQuestionsText.push(q_sample);
+}
+
+console.log(randomizedQuestionsText);
