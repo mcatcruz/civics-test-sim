@@ -1,4 +1,3 @@
-
 import { QUESTION_BANK } from '../../../src/hardcoded_data/QUESTION_BANK_2025';
 
 import type { Session } from '../../../src/models/session';
@@ -10,7 +9,13 @@ import { createSession } from '../../../src/session/createSession';
 
 import { Response } from './Response';
 
-
+/**
+ * Main quiz shell for the React UI.
+ *
+ * Creates a session from the shared question bank and config, resolves the current
+ * question via `getCurrentQuestion`, and renders the prompt plus the `Response` input.
+ * Config is static for now; submit/advance flow will be wired to session logic next.
+ */
 export function Session() {
     // TODO: Make future sessionConfigs dynamic
     const sessionConfig: SessionConfig = {

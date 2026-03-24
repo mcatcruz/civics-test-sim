@@ -4,6 +4,26 @@ Upon project completion, the USCIS Civics Mock Interview (MVP) will be able to a
 
 Phase 1 will be text-based and have seamless quiz flow and grading logic. Phase 1 will not have a separate flow for users 65+ nor will it have state-specific questions. Furthermore, Phase 1 will not have TTS functionality.
 
+## Frontend (React + Vite)
+
+The web UI lives in the **`civics-test-sim/`** package (nested app folder). It imports shared domain code from the repo root **`src/`** (models, question bank, session helpers).
+
+### Run the dev server
+
+```bash
+cd civics-test-sim
+npm install
+npm run dev
+```
+
+### Key components
+
+- **`Session`** (`civics-test-sim/src/components/Session.tsx`) — Creates a session from `QUESTION_BANK`, shows the current question text, and embeds the answer area.
+- **`Response`** (`civics-test-sim/src/components/Response.tsx`) — Accessible answer field (React Aria `Input`); submit wiring to `submitAnswer` is planned next.
+- **UI primitives** (`civics-test-sim/src/components/untitled_ui/`) — Trimmed set: text `Input` + `Label`, and a primary/secondary `Button` for future submit/actions.
+
+Styling uses the existing Tailwind/theme tokens from the Vite app (see `App.css`).
+
 ## Testing
 
 ### Running Tests
