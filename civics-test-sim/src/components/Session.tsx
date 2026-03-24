@@ -1,15 +1,18 @@
 
+import { QUESTION_BANK } from '../../../src/hardcoded_data/QUESTION_BANK_2025';
+
 import type { Session } from '../../../src/models/session';
 import type { Question } from '../../../src/models/question';
 import type { SessionConfig } from '../../../src/models/sessionConfig';
 
 import { getCurrentQuestion } from '../../../src/session/getCurrentQuestion';
 import { createSession } from '../../../src/session/createSession';
-import { QUESTION_BANK } from '../../../src/hardcoded_data/QUESTION_BANK_2025';
+
+import { Response } from './Response';
+
 
 export function Session() {
-    // Call createSession -> store in a variable so getCurrentQuestion can access  
-        // Create SessionConfig variable to use as arg? Use QUESTION_BANK_2025 for questions
+    // TODO: Make future sessionConfigs dynamic
     const sessionConfig: SessionConfig = {
         mode: 'mock',
         state:  'CA',
@@ -21,6 +24,10 @@ export function Session() {
     const currentQuestion: Question | null = getCurrentQuestion(currentSession)
 
     return (
+        
+        <>
         <h2>{currentQuestion?.question_text}</h2>
+        <Response/>
+        </>
     );
 };
