@@ -5,9 +5,9 @@ import type { Session } from '../../../src/models/session';
 import type { Question } from '../../../src/models/question';
 import type { SessionConfig } from '../../../src/models/sessionConfig';
 
+import { submitAnswer } from '../../../src/session/advanceSession';
 import { getCurrentQuestion } from '../../../src/session/getCurrentQuestion';
 import { createSession } from '../../../src/session/createSession';
-
 import { Response } from './Response';
 
 /**
@@ -30,14 +30,28 @@ const sessionConfig: SessionConfig = {
 
 export function Session() {
     const [currentSession, setCurrentSession] = useState(() => createSession(sessionConfig, QUESTION_BANK));
+    const [rawUserInput, setRawUserInput] = useState('');
 
     const currentQuestion: Question | null = getCurrentQuestion(currentSession)
+
+    const handleChange = (rawString: string) => {
+        setRawUserInput(rawString);
+    };
+
+    const handleSubmitAnswer = () => {
+        setCurrentSession((prev) => submitAnswer(prev, rawUserInput));
+        setRawUserInput("");
+    };
 
     return (
         
         <>
         <h2>{currentQuestion?.question_text}</h2>
-        <Response/>
+        <Response 
+            rawUserInput={rawUserInput} 
+            onChange={handleChange} 
+            onSubmit={handleSubmitAnswer}
+        />
         </>
     );
 };

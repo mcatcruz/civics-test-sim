@@ -9,25 +9,30 @@ import { isSessionComplete } from "./isSessionComplete";
  * @param rawUserAnswer - The user's typed answer as a string
  * @returns A new Session object with updated counters, status, and response
  */
-function submitAnswer(currentSession: Session, rawUserAnswer: string): Session {
-    const questionIndex = currentSession.currentIndex;
-    const response = createResponse(rawUserAnswer, currentSession.selectedQuestions[questionIndex]); 
-    const pass_threshold = currentSession.config.pass_threshold;
-    const max_questions = currentSession.config.max_questions;
-    const fail_threshold = currentSession.config.fail_threshold;
-    
-    const updatedResponses = [...currentSession.responses, response];
-    const asked = currentSession.askedQuestionsCount + 1;
-    const correct = currentSession.correctAnswersCount + (response.isCorrect ?  1 : 0 );
-    const incorrect = currentSession.incorrectAnswersCount + (response.isCorrect ? 0 : 1);
-
-    let currentStatus = currentSession.status;
-
+export function submitAnswer(currentSession: Session, rawUserAnswer: string): Session {
     if (isSessionComplete(currentSession)) {
         return currentSession;
     }
 
-    if ( correct  >= pass_threshold ) {
+    const questionIndex = currentSession.currentIndex;
+    const question = currentSession.selectedQuestions[questionIndex];
+    if (question === undefined) {
+        return currentSession;
+    }
+
+    const response = createResponse(rawUserAnswer, question);
+    const pass_threshold = currentSession.config.pass_threshold;
+    const max_questions = currentSession.config.max_questions;
+    const fail_threshold = currentSession.config.fail_threshold;
+
+    const updatedResponses = [...currentSession.responses, response];
+    const asked = currentSession.askedQuestionsCount + 1;
+    const correct = currentSession.correctAnswersCount + (response.isCorrect ? 1 : 0);
+    const incorrect = currentSession.incorrectAnswersCount + (response.isCorrect ? 0 : 1);
+
+    let currentStatus = currentSession.status;
+
+    if (correct >= pass_threshold) {
         currentStatus = 'passed';
 
     } else if ( incorrect >=  fail_threshold ) { 

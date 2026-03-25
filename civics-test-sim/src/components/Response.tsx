@@ -1,11 +1,34 @@
 import { Input } from "./untitled_ui/base/input/input";
+import { Button } from "./untitled_ui/base/buttons/button";
+
+export type ResponseProps = {
+    rawUserInput: string;
+    onChange: (value: string) => void;
+    onSubmit: () => void;
+};
 
 /**
  * Answer entry for the civics interview UI.
  *
- * Presents an accessible text field (React Aria) for the user's typed response.
- * Submit handling and grading will connect to `submitAnswer` and session state later.
+ * Draft text lives in `Session`; this component is controlled via `rawUserInput` + `onChange`.
  */
-export const Response = () => {
-    return <Input isRequired label="Response" placeholder="Answer here"/>;
-};
+export function Response({ rawUserInput, onChange, onSubmit }: ResponseProps) {
+    return (
+        <form
+            className="mt-4 flex w-full max-w-xl flex-col gap-3"
+            onSubmit={(e) => {
+                e.preventDefault();
+                onSubmit();
+            }}
+        >
+            <Input
+                isRequired
+                label="Response"
+                placeholder="Answer here"
+                value={rawUserInput}
+                onChange={onChange}
+            />
+            <Button type="submit">Submit answer</Button>
+        </form>
+    );
+}
