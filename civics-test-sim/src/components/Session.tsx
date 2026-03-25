@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { QUESTION_BANK } from '../../../src/hardcoded_data/QUESTION_BANK_2025';
 
-import type { Session } from '../../../src/models/session';
 import type { Question } from '../../../src/models/question';
 import type { SessionConfig } from '../../../src/models/sessionConfig';
 
@@ -13,10 +12,23 @@ import { Response } from './Response';
 /**
  * Main quiz shell for the React UI.
  *
- * Creates a session from the shared question bank and config, resolves the current
- * question via `getCurrentQuestion`, and renders the prompt plus the `Response` input.
- * Config is static for now; submit/advance flow will be wired to session logic next.
- * 
+ * **State**
+ * - `currentSession` — Domain session from `createSession(sessionConfig, QUESTION_BANK)`;
+ *   initialized once via lazy `useState(() => …)`. Updates only through `submitAnswer`
+ *   (immutable replacement), never mutated in place.
+ * - `rawUserInput` — Draft answer string; lifted here so submit can pass it to `submitAnswer`.
+ *
+ * **Flow**
+ * - Renders the current prompt from `getCurrentQuestion(currentSession)` and the controlled
+ *   `Response` form.
+ * - On submit, replaces session with `submitAnswer(prev, rawUserInput)` and clears the draft.
+ * - Submit is disabled when there is no current question (`getCurrentQuestion` is `null`),
+ *   e.g. session status is no longer `in_progress`.
+ *
+ * **Not yet in UI**
+ * - Outcome summary and “new session” restart (`createSession` again) after pass/fail/complete.
+ *
+ * `sessionConfig` is module-level and static for this iteration.
  */
 
 // TODO: Make future sessionConfigs dynamic
@@ -44,14 +56,14 @@ export function Session() {
     };
 
     return (
-        
         <>
-        <h2>{currentQuestion?.question_text}</h2>
-        <Response 
-            rawUserInput={rawUserInput} 
-            onChange={handleChange} 
-            onSubmit={handleSubmitAnswer}
-        />
+            <h2>{currentQuestion?.question_text}</h2>
+            <Response
+                rawUserInput={rawUserInput}
+                onChange={handleChange}
+                onSubmit={handleSubmitAnswer}
+                isSubmitDisabled={currentQuestion === null}
+            />
         </>
     );
-};
+}

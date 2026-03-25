@@ -18,11 +18,20 @@ npm run dev
 
 ### Key components
 
-- **`Session`** (`civics-test-sim/src/components/Session.tsx`) — Creates a session from `QUESTION_BANK`, shows the current question text, and embeds the answer area.
-- **`Response`** (`civics-test-sim/src/components/Response.tsx`) — Accessible answer field (React Aria `Input`); submit wiring to `submitAnswer` is planned next.
-- **UI primitives** (`civics-test-sim/src/components/untitled_ui/`) — Trimmed set: text `Input` + `Label`, and a primary/secondary `Button` for future submit/actions.
+- **`Session`** (`civics-test-sim/src/components/Session.tsx`) — Holds React state for the domain session (`useState` + `createSession`) and draft answer text. Renders the current question via `getCurrentQuestion`, and on submit calls `submitAnswer` then clears the draft. Disables submit when there is no current question.
+- **`Response`** (`civics-test-sim/src/components/Response.tsx`) — Controlled answer field (React Aria `Input`) and submit `Button` in a `<form>`. Props: `rawUserInput`, `onChange`, `onSubmit`, `isSubmitDisabled`. No session imports; parent owns all domain updates.
+- **UI primitives** (`civics-test-sim/src/components/untitled_ui/`) — Trimmed set: text `Input` + `Label`, and primary/secondary `Button`.
 
 Styling uses the existing Tailwind/theme tokens from the Vite app (see `App.css`).
+
+### React state management (quiz flow)
+
+| State (in `Session`) | Role |
+|----------------------|------|
+| `currentSession` | Single source of truth for the in-app interview: questions shown, counts, `status`, `responses`. Initialized with `createSession(sessionConfig, QUESTION_BANK)` (lazy initializer). Replaced with the return value of `submitAnswer` on each submit. |
+| `rawUserInput` | Typing buffer for the answer field; passed to `Response` as `rawUserInput` / `onChange`. Cleared after a successful submit handler run. |
+
+Domain rules (pass / fail / max questions, when `getCurrentQuestion` returns `null`) live in `src/session/` (`submitAnswer`, `getCurrentQuestion`, `isSessionComplete`). The UI does not yet show a dedicated end-of-session screen or “start over” control; that can call `createSession` again with the same config and bank when you add it.
 
 ## Testing
 
@@ -69,7 +78,7 @@ This will execute the manual test script that demonstrates:
 - Creates an empty `responses` array
 
 **`submitAnswer()`** - Updates an existing session:
-- Use when processing an answer during an ongoing session (middle of the flow)
+- Use when processing an answer during an ongoing session (middle of the flow); the React app calls it from `Session` on form submit
 - Takes an existing session as input
 - Creates a response object by grading the answer
 - Updates counters based on the answer
